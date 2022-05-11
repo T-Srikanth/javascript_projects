@@ -1,0 +1,26 @@
+body {
+    margin: 2% 20% 2% 20%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sketch {
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    height: auto;
+    border: 1px solid black;
+}
+
+.sketch .unit {
+    width: 20px;
+    height: 20px;
+}
+
+.sketch .unit:hover {
+    background-color: rgb(165, 169, 172);
+}
+
+.color {
+    background-color: black;
+}
