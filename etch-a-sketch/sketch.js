@@ -1,15 +1,42 @@
-const sketch = document.querySelector('.sketch');
+const sketch = document.querySelector('.sketch')
+let precision = document.querySelector('#precision')
+const clear = document.querySelector('#clear')
+let units = initGrid()
 
-for(let i=0; i<16*16 ; i++) {
-    let block = document.createElement('div')
-    // block.innerText = i
-    block.classList.add('unit')
-    sketch.appendChild(block)
+function initGrid(size=20){
+    for(let i=0; i<size*size ; i++) {
+        let block = document.createElement('div')
+        block.classList.add('unit')
+        block.style.width = 500/size + "px"
+        block.style.height = 500/size + "px"
+        sketch.appendChild(block)
+    }
+    return document.querySelectorAll('.unit')    
+
 }
 
-const units = document.querySelectorAll('.unit')
-console.log(units)
-units.forEach(unit => unit.addEventListener('click',(event) => {
+function toggleColor(event){
     let tempUnit = event.target
     tempUnit.classList.toggle('color')
-}))
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+precision.addEventListener('input', (e) => {
+    let temp = e.target.value
+    let inputDisplay = document.querySelector('.precisionContainer h3')
+    inputDisplay.textContent = `Precision : ${temp}*${temp}`
+    removeAllChildNodes(sketch)
+    units = initGrid(temp)
+    units.forEach(unit => unit.addEventListener('click',toggleColor))
+})
+
+units.forEach(unit => unit.addEventListener('click',toggleColor))
+clear.addEventListener('click', ()=> {
+    units = document.querySelectorAll('.unit')
+    units.forEach(unit => unit.classList.remove('color'))
+})
