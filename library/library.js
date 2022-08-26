@@ -40,6 +40,7 @@ function addBook(name, author, read){
     bookRead.className = "b_read"
     bookRead.innerHTML = read
     books.appendChild(book)
+    bookRead.addEventListener("click", () => changeBackground(bookRead.parentElement))
 }
 
 function changeBackground(element){
@@ -49,13 +50,4 @@ function changeBackground(element){
 const books = document.querySelector('.books')
 displayLibrary()
 const addBookBtn = document.querySelector('#addBookBtn')
-// const detail = addBookBtn.addEventListener('click', updateLibrary)
-const detailNew = addBookBtn.addEventListener('click', (event) => {
-    updateLibrary()
-    let readStatus = document.querySelectorAll('.b_read')
-    console.log(readStatus)
-    readStatus.forEach(button => {
-        button.addEventListener("click", () => changeBackground(button.parentElement))
-        }
-    )
-})
+const detail = addBookBtn.addEventListener('click', updateLibrary)
