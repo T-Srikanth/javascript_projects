@@ -1,0 +1,19 @@
+.main_container{
+    margin: 0px 50px;
+}
+
+.main_container header{
+    height: auto;
+}
+
+.main_container .books{
+    height: 80vh;
+    max-width: 800px;
+    background-color: aquamarine;
+    display: grid;
+    grid-template: 150px 150px / auto auto auto auto;
+}
+
+.not_read{
+    background-color: rgb(183, 190, 196);
+}
