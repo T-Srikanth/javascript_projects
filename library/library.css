@@ -17,3 +17,17 @@
 .not_read{
     background-color: rgb(183, 190, 196);
 }
+
+.modal_form{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 900px;
+    top: 150px;
+}
+
+.main_container #addBookBtn{
+    position: fixed;
+    left: 900px;
+    top: 100px;
+}
